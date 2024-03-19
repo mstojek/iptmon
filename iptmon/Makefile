@@ -44,14 +44,16 @@ define Package/iptmon/postinst
 	uci set dhcp.@dnsmasq[0].dhcpscript=/usr/sbin/iptmon
 	uci commit
 	/etc/init.d/dnsmasq restart
-  ## firewall configuration
+	## firewall configuration
 	echo '/usr/sbin/iptmon init' >> /etc/firewall.user
 	/etc/init.d/firewall restart
-  ## luci_statistics/collectd configuration
+	## luci_statistics/collectd configuration
 	uci set luci_statistics.collectd.Include='/etc/collectd/conf.d'
 	uci commit
 	/etc/init.d/luci_statistics restart
 	rm -rf /tmp/luci-modulecache/
+	## rc.local configuration (needed for Openwrt 21.0)
+	echo '/usr/sbin/iptmon init' >> /etc/rc.local
 endef
 
 define Package/iptmon/postrm
