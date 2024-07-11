@@ -1,11 +1,9 @@
-
-
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=iptmon
-PKG_VERSION:=0.1.6
+PKG_VERSION:=0.1.6.1
 PKG_RELEASE:=1
-PKG_MAINTAINER:=Jordan Sokolic <oofnik@gmail.com>
+PKG_MAINTAINER:=Jordan Sokolic <oofnik@gmail.com>;Marcin Stojek <mstojek@gmail.com>
 
 
 include $(INCLUDE_DIR)/package.mk
@@ -16,7 +14,7 @@ define Package/iptmon
 	TITLE:=simple iptables-based network bandwidth monitor
 	DEPENDS:=+luci-app-statistics +collectd-mod-iptables +dnsmasq
 	MAINTAINER:=$(PKG_MAINTAINER)
-	URL:=https://github.com/oofnikj/iptmon
+	URL:=https://github.com/mstojek/iptmon
 	PKGARCH:=all
 endef
 
@@ -68,4 +66,8 @@ define Package/iptmon/postrm
 	/etc/init.d/luci_statistics restart
 	rm -rf /tmp/luci-modulecache/
 endef
+
+$(eval $(call BuildPackage,iptmon))
+
+
 
