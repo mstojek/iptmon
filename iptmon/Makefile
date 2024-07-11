@@ -3,7 +3,7 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=iptmon
 PKG_VERSION:=0.1.6.1
 PKG_RELEASE:=1
-PKG_MAINTAINER:=Jordan Sokolic <oofnik@gmail.com>;Marcin Stojek <mstojek@gmail.com>
+PKG_MAINTAINER:=Marcin Stojek <mstojek@gmail.com>
 
 
 include $(INCLUDE_DIR)/package.mk
