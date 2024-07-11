@@ -1,3 +1,5 @@
+
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=iptmon
@@ -67,4 +69,3 @@ define Package/iptmon/postrm
 	rm -rf /tmp/luci-modulecache/
 endef
 
-$(eval $(call BuildPackage,iptmon))
