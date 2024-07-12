@@ -53,7 +53,7 @@ define Package/iptmon/postinst
 	/etc/init.d/luci_statistics restart
 	rm -rf /tmp/luci-modulecache/
 	## rc.local configuration (needed for Openwrt 21.0)
-	echo '/usr/sbin/iptmon init' >> /etc/rc.local
+	####echo '/usr/sbin/iptmon init' >> /etc/rc.local
 endef
 
 define Package/iptmon/postrm
